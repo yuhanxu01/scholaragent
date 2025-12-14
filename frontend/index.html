@@ -5,6 +5,53 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>frontend</title>
+    <!-- 主题初始化脚本 - 防止闪烁 -->
+    <script>
+      // 精简的主题初始化脚本
+      (function() {
+        'use strict';
+
+        // 确保在客户端执行
+        if (typeof window === 'undefined') return;
+
+        // 立即设置主题，避免闪烁
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+        // 设置 HTML 和 Body 的主题
+        const html = document.documentElement;
+        const body = document.body;
+
+        html.classList.remove('light', 'dark');
+        body.classList.remove('light', 'dark');
+        html.classList.add(theme);
+        body.classList.add(theme);
+        html.style.colorScheme = theme;
+
+        // 创建全局主题切换函数
+        window.setTheme = function(newTheme) {
+          localStorage.setItem('theme', newTheme);
+          html.classList.remove('light', 'dark');
+          body.classList.remove('light', 'dark');
+          html.classList.add(newTheme);
+          body.classList.add(newTheme);
+          html.style.colorScheme = newTheme;
+
+          // 触发主题变化事件
+          window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: newTheme } }));
+        };
+
+        // 监听系统主题变化（仅当用户没有手动设置时）
+        if (!savedTheme) {
+          const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+          mediaQuery.addEventListener('change', function(e) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            window.setTheme(newTheme);
+          });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

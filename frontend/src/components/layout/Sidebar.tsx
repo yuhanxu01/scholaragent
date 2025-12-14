@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../../contexts/ThemeContext';
 import {
   Home,
   FileText,
@@ -32,16 +31,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, collapsed, onClose }) =>
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { theme } = useTheme();
-
-  // 根据主题动态设置样式类
-  const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
-  const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
-  const textColor = theme === 'dark' ? 'text-gray-100' : 'text-gray-900';
-  const subTextColor = theme === 'dark' ? 'text-gray-400' : 'text-gray-600';
-  const hoverBg = theme === 'dark' ? 'hover:bg-gray-700' : 'hover:bg-gray-100';
-  const activeBg = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100';
-  const activeTextColor = theme === 'dark' ? 'text-white' : 'text-gray-900';
 
   // 防止侧边栏打开时背景滚动（仅在移动端）
   useEffect(() => {
@@ -133,18 +122,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, collapsed, onClose }) =>
 
       {/* Sidebar */}
       <div className={`
-        fixed inset-y-0 left-0 z-50 ${bgColor} shadow-xl border-r ${borderColor}
+        fixed inset-y-0 left-0 z-50 bg-white dark:bg-gray-800 shadow-xl border-r border-gray-200 dark:border-gray-700
         transform transition-all duration-300 ease-in-out
         ${open ? 'translate-x-0' : '-translate-x-full'}
         ${collapsed ? 'lg:w-16' : 'lg:w-64 lg:translate-x-0'}
       `}>
         <div className="flex flex-col h-full">
           {/* Sidebar header - visible on mobile only */}
-          <div className={`lg:hidden flex items-center justify-between p-4 border-b ${borderColor}`}>
-            <h2 className={`text-lg font-semibold ${textColor}`}>{t('navigation.menu')}</h2>
+          <div className="lg:hidden flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{t('navigation.menu')}</h2>
             <button
               onClick={onClose}
-              className={`p-2 rounded-md ${subTextColor} hover:text-gray-500 ${hoverBg}`}
+              className="p-2 rounded-md text-gray-600 hover:text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-700"
             >
               ×
             </button>
@@ -164,14 +153,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, collapsed, onClose }) =>
                     group flex items-center ${collapsed ? 'px-3 py-3 justify-center' : 'px-3 py-2'} text-sm font-medium rounded-lg transition-colors
                     ${isActive
                       ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-r-2 border-blue-700 dark:border-blue-400'
-                      : `${textColor} ${hoverBg}`
+                      : 'text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }
                   `}
                   title={collapsed ? item.name : undefined}
                 >
                   <span className={`
                     flex-shrink-0 ${collapsed ? '' : 'mr-3'} h-5 w-5
-                    ${isActive ? 'text-blue-700 dark:text-blue-400' : `${subTextColor} group-hover:text-gray-500`}
+                    ${isActive ? 'text-blue-700 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300'}
                   `}>
                     {item.icon}
                   </span>
@@ -182,11 +171,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, collapsed, onClose }) =>
           </nav>
 
           {/* Sidebar footer */}
-          <div className={`${collapsed ? 'p-2' : 'p-4'} border-t ${borderColor}`}>
+          <div className={`${collapsed ? 'p-2' : 'p-4'} border-t border-gray-200 dark:border-gray-700`}>
             {!collapsed && (
               <>
-                <div className={`text-xs ${subTextColor} mb-2`}>{t('sidebar.scholarMind')}</div>
-                <div className={`text-xs ${subTextColor}`}>{t('sidebar.academicAIAssistant')}</div>
+                <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">{t('sidebar.scholarMind')}</div>
+                <div className="text-xs text-gray-600 dark:text-gray-400">{t('sidebar.academicAIAssistant')}</div>
               </>
             )}
             <div className="mt-2 flex justify-center">
