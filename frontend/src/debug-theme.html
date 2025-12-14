@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Debug</title>
+    <script>
+        console.log('Debug page loaded');
+        console.log('Document classes:', document.documentElement.className);
+
+        // Test if theme context is available
+        setTimeout(() => {
+            console.log('Document classes after 2 seconds:', document.documentElement.className);
+            console.log('Local storage theme:', localStorage.getItem('theme'));
+        }, 2000);
+    </script>
+</head>
+<body>
+    <h1>Theme Debug Page</h1>
+    <p>Current theme: <span id="theme"></span></p>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.classList.remove('light', 'dark');
+            html.classList.add(newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            document.getElementById('theme').textContent = newTheme;
+            console.log('Theme changed to:', newTheme);
+            console.log('HTML classes:', html.className);
+        }
+
+        // Initialize
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.classList.add(currentTheme);
+        document.getElementById('theme').textContent = currentTheme;
+    </script>
+</body>
+</html>

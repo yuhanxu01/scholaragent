@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Theme Test</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --button-bg: #f0f0f0;
+        }
+
+        .dark {
+            --bg-color: #1f2937;
+            --text-color: #f3f4f6;
+            --button-bg: #374151;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        button {
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .theme-info {
+            background-color: var(--button-bg);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>简单主题切换测试</h1>
+    <button onclick="toggleTheme()">切换主题</button>
+
+    <div class="theme-info">
+        <h3>主题信息</h3>
+        <p>当前主题: <span id="current-theme">light</span></p>
+        <p>HTML 类名: <span id="html-class"></span></p>
+        <p>LocalStorage: <span id="storage-theme"></span></p>
+    </div>
+
+    <script>
+        // 初始化主题
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const theme = savedTheme || systemTheme;
+
+            document.documentElement.classList.add(theme);
+            updateThemeInfo(theme);
+        }
+
+        // 切换主题
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.classList.remove('light', 'dark');
+            html.classList.add(newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            updateThemeInfo(newTheme);
+        }
+
+        // 更新主题信息显示
+        function updateThemeInfo(theme) {
+            document.getElementById('current-theme').textContent = theme;
+            document.getElementById('html-class').textContent = document.documentElement.className;
+            document.getElementById('storage-theme').textContent = localStorage.getItem('theme') || 'null';
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', initTheme);
+
+        // 监听系统主题变化
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                initTheme();
+            }
+        });
+    </script>
+</body>
+</html>

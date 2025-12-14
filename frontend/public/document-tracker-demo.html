@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档处理跟踪演示</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { Upload, FileText, Loader2, CheckCircle, AlertCircle, ChevronDown, ChevronRight, Clock, Zap, Database, Brain, FileCode } = lucide;
+
+        function DocumentProcessingTracker({ documentId, fileName, isOpen: initialIsOpen = true }) {
+            const [isOpen, setIsOpen] = useState(initialIsOpen);
+            const [steps, setSteps] = useState([
+                {
+                    id: 'upload',
+                    name: '文件上传',
+                    status: 'pending',
+                    progress: 0,
+                    icon: <Upload className="w-4 h-4" />,
+                    substeps: [
+                        { id: 'validate', name: '验证文件格式', status: 'pending', progress: 0 },
+                        { id: 'transfer', name: '传输文件', status: 'pending', progress: 0 },
+                        { id: 'store', name: '存储文件', status: 'pending', progress: 0 }
+                    ]
+                },
+                {
+                    id: 'parse',
+                    name: '解析文档结构',
+                    status: 'pending',
+                    progress: 0,
+                    icon: <FileCode className="w-4 h-4" />,
+                    substeps: [
+                        { id: 'read', name: '读取文件内容', status: 'pending', progress: 0 },
+                        { id: 'extract', name: '提取结构化元素', status: 'pending', progress: 0 },
+                        { id: 'chunking', name: '智能分块处理', status: 'pending', progress: 0 }
+                    ]
+                },
+                {
+                    id: 'analyze',
+                    name: 'AI智能分析',
+                    status: 'pending',
+                    progress: 0,
+                    icon: <Brain className="w-4 h-4" />,
+                    substeps: [
+                        { id: 'summary', name: '生成文档摘要', status: 'pending', progress: 0 },
+                        { id: 'concepts', name: '提取核心概念', status: 'pending', progress: 0 },
+                        { id: 'keywords', name: '识别关键词', status: 'pending', progress: 0 }
+                    ]
+                },
+                {
+                    id: 'index',
+                    name: '建立索引',
+                    status: 'pending',
+                    progress: 0,
+                    icon: <Database className="w-4 h-4" />,
+                    substeps: [
+                        { id: 'sections', name: '索引章节结构', status: 'pending', progress: 0 },
+                        { id: 'formulas', name: '索引数学公式', status: 'pending', progress: 0 },
+                        { id: 'vectors', name: '生成向量索引', status: 'pending', progress: 0 }
+                    ]
+                },
+                {
+                    id: 'complete',
+                    name: '处理完成',
+                    status: 'pending',
+                    progress: 0,
+                    icon: <CheckCircle className="w-4 h-4" />
+                }
+            ]);
+
+            const [overallProgress, setOverallProgress] = useState(0);
+            const [startTime] = useState(Date.now());
+            const [elapsedTime, setElapsedTime] = useState(0);
+
+            // 计时器
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setElapsedTime(Date.now() - startTime);
+                }, 100);
+                return () => clearInterval(interval);
+            }, [startTime]);
+
+            // 模拟处理进度
+            useEffect(() => {
+                const simulateProcessing = async () => {
+                    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+                    const updateStep = async (stepId, status, progress) => {
+                        setSteps(prev => prev.map(step => {
+                            if (step.id === stepId) {
+                                return { ...step, status, progress };
+                            }
+                            return step;
+                        }));
+                        updateOverallProgress();
+                    };
+                    const updateSubstep = async (stepId, substepId, status, progress) => {
+                        setSteps(prev => prev.map(step => {
+                            if (step.id === stepId) {
+                                return {
+                                    ...step,
+                                    substeps: step.substeps?.map(substep => {
+                                        if (substep.id === substepId) {
+                                            return { ...substep, status, progress };
+                                        }
+                                        return substep;
+                                    })
+                                };
+                            }
+                            return step;
+                        }));
+                        updateOverallProgress();
+                    };
+                    const simulateProgress = async (stepId, substepId, duration) => {
+                        const steps = 20;
+                        for (let i = 0; i <= steps; i++) {
+                            await updateSubstep(stepId, substepId, 'running', (i / steps) * 100);
+                            await delay(duration / steps);
+                        }
+                        await updateSubstep(stepId, substepId, 'completed', 100);
+                    };
+                    const updateOverallProgress = () => {
+                        setSteps(prev => {
+                            const totalSteps = prev.length;
+                            const completedSteps = prev.filter(step => step.status === 'completed').length;
+                            const currentStepProgress = prev.find(step => step.status === 'running')?.progress || 0;
+                            const overall = ((completedSteps + currentStepProgress / 100) / totalSteps) * 100;
+                            setOverallProgress(overall);
+                            return prev;
+                        });
+                    };
+
+                    // 开始处理
+                    await updateStep('upload', 'running', 0);
+                    await updateSubstep('upload', 'validate', 'running', 100);
+                    await delay(500);
+                    await updateSubstep('upload', 'validate', 'completed', 100);
+                    await simulateProgress('upload', 'transfer', 1500);
+                    await updateSubstep('upload', 'store', 'running', 0);
+                    await simulateProgress('upload', 'store', 1000);
+                    await updateStep('upload', 'completed', 100);
+
+                    await updateStep('parse', 'running', 0);
+                    await updateSubstep('parse', 'read', 'running', 100);
+                    await delay(300);
+                    await updateSubstep('parse', 'read', 'completed', 100);
+                    await simulateProgress('parse', 'extract', 2000);
+                    await updateSubstep('parse', 'chunking', 'running', 0);
+                    await simulateProgress('parse', 'chunking', 1500);
+                    await updateStep('parse', 'completed', 100);
+
+                    await updateStep('analyze', 'running', 0);
+                    await simulateProgress('analyze', 'summary', 2500);
+                    await updateSubstep('analyze', 'concepts', 'running', 0);
+                    await simulateProgress('analyze', 'concepts', 2000);
+                    await updateSubstep('analyze', 'keywords', 'running', 0);
+                    await simulateProgress('analyze', 'keywords', 1500);
+                    await updateStep('analyze', 'completed', 100);
+
+                    await updateStep('index', 'running', 0);
+                    await simulateProgress('index', 'sections', 1500);
+                    await updateSubstep('index', 'formulas', 'running', 0);
+                    await simulateProgress('index', 'formulas', 1000);
+                    await updateSubstep('index', 'vectors', 'running', 0);
+                    await simulateProgress('index', 'vectors', 2000);
+                    await updateStep('index', 'completed', 100);
+
+                    await updateStep('complete', 'running', 0);
+                    await delay(500);
+                    await updateStep('complete', 'completed', 100);
+                };
+
+                simulateProcessing();
+            }, []);
+
+            const formatTime = (ms) => {
+                const seconds = Math.floor(ms / 1000);
+                const minutes = Math.floor(seconds / 60);
+                if (minutes > 0) {
+                    return `${minutes}m ${seconds % 60}s`;
+                } else {
+                    return `${seconds}s`;
+                }
+            };
+
+            const getStepIcon = (step) => {
+                if (step.status === 'completed') {
+                    return <CheckCircle className="w-5 h-5 text-green-500" />;
+                } else if (step.status === 'error') {
+                    return <AlertCircle className="w-5 h-5 text-red-500" />;
+                } else if (step.status === 'running') {
+                    return <Loader2 className="w-5 h-5 text-blue-500 animate-spin" />;
+                } else {
+                    return <div className="w-5 h-5 border-2 border-gray-300 rounded-full" />;
+                }
+            };
+
+            return (
+                <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                    <div
+                        className="flex items-center justify-between p-4 bg-gray-50 cursor-pointer hover:bg-gray-100"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <div className="flex items-center space-x-3">
+                            <FileText className="w-5 h-5 text-gray-600" />
+                            <div>
+                                <h3 className="font-medium text-gray-900">{fileName}</h3>
+                                <div className="flex items-center space-x-4 text-sm text-gray-500 mt-1">
+                                    <span className="flex items-center space-x-1">
+                                        <Clock className="w-3 h-3" />
+                                        <span>{formatTime(elapsedTime)}</span>
+                                    </span>
+                                    <span className="flex items-center space-x-1">
+                                        <Zap className="w-3 h-3" />
+                                        <span>{overallProgress.toFixed(1)}%</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                            <div className="w-32 bg-gray-200 rounded-full h-2">
+                                <div
+                                    className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+                                    style={{ width: `${overallProgress}%` }}
+                                />
+                            </div>
+                            {isOpen ? <ChevronDown className="w-5 h-5 text-gray-500" /> : <ChevronRight className="w-5 h-5 text-gray-500" />}
+                        </div>
+                    </div>
+
+                    {isOpen && (
+                        <div className="p-4 border-t border-gray-200 space-y-3">
+                            {steps.map((step) => (
+                                <div key={step.id} className="border border-gray-200 rounded-lg p-3">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <div className="flex items-center space-x-2">
+                                            {getStepIcon(step)}
+                                            {step.icon && <span className="text-gray-600">{step.icon}</span>}
+                                            <span className="font-medium text-gray-900">{step.name}</span>
+                                        </div>
+                                        <span className="text-sm text-gray-600">{step.progress.toFixed(0)}%</span>
+                                    </div>
+
+                                    <div className="w-full bg-gray-200 rounded-full h-1.5 mb-2">
+                                        <div
+                                            className={`h-1.5 rounded-full transition-all duration-300 ${
+                                                step.status === 'completed' ? 'bg-green-500' :
+                                                step.status === 'error' ? 'bg-red-500' :
+                                                step.status === 'running' ? 'bg-blue-500' : 'bg-gray-300'
+                                            }`}
+                                            style={{ width: `${step.progress}%` }}
+                                        />
+                                    </div>
+
+                                    {step.substeps && step.substeps.length > 0 && (
+                                        <div className="ml-7 space-y-1">
+                                            {step.substeps.map((substep) => (
+                                                <div key={substep.id} className="flex items-center justify-between text-sm">
+                                                    <div className="flex items-center space-x-2">
+                                                        {substep.status === 'completed' ? (
+                                                            <CheckCircle className="w-3 h-3 text-green-500" />
+                                                        ) : substep.status === 'error' ? (
+                                                            <AlertCircle className="w-3 h-3 text-red-500" />
+                                                        ) : substep.status === 'running' ? (
+                                                            <Loader2 className="w-3 h-3 text-blue-500 animate-spin" />
+                                                        ) : (
+                                                            <div className="w-3 h-3 border border-gray-300 rounded-full" />
+                                                        )}
+                                                        <span className={`text-gray-600 ${substep.status === 'running' ? 'text-blue-600 font-medium' : ''}`}>
+                                                            {substep.name}
+                                                        </span>
+                                                    </div>
+                                                    <span className="text-gray-500">{substep.progress.toFixed(0)}%</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        function App() {
+            const [showDemo, setShowDemo] = useState(false);
+
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+                    <div className="max-w-4xl mx-auto">
+                        <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+                            文档处理跟踪系统演示
+                        </h1>
+                        <p className="text-lg text-gray-600 mb-8 text-center">
+                            点击下方按钮查看文档处理的实时进度跟踪
+                        </p>
+
+                        <div className="text-center mb-8">
+                            <button
+                                onClick={() => setShowDemo(!showDemo)}
+                                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                {showDemo ? '隐藏' : '开始'}演示
+                            </button>
+                        </div>
+
+                        {showDemo && (
+                            <div className="space-y-4">
+                                <div className="bg-white p-4 rounded-lg">
+                                    <h2 className="text-xl font-semibold mb-4">示例文档：学术论文.pdf</h2>
+                                    <DocumentProcessingTracker
+                                        documentId="doc_123"
+                                        fileName="学术论文.pdf"
+                                        isOpen={true}
+                                    />
+                                </div>
+
+                                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                    <h3 className="font-semibold text-blue-900 mb-2">功能说明</h3>
+                                    <ul className="list-disc list-inside text-blue-800 space-y-1">
+                                        <li>实时显示文档处理进度</li>
+                                        <li>展示详细的处理步骤和子步骤</li>
+                                        <li>显示每个步骤的耗时</li>
+                                        <li>支持展开/折叠查看详情</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

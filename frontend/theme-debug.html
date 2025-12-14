@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜间模式诊断</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        body { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
+            夜间模式诊断工具
+        </h1>
+
+        <!-- 状态检查 -->
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg mb-8">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">状态检查</h2>
+            <div class="space-y-2 text-sm">
+                <p>HTML 类名: <span id="htmlClass" class="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"></span></p>
+                <p>LocalStorage: <span id="localStorage" class="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"></span></p>
+                <p>系统偏好: <span id="systemPref" class="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"></span></p>
+            </div>
+        </div>
+
+        <!-- 手动测试 -->
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg mb-8">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">手动测试</h2>
+            <div class="space-y-4">
+                <div>
+                    <button id="test1" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">切换到夜间模式</button>
+                    <button id="test2" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">切换到日间模式</button>
+                </div>
+                <div>
+                    <button id="test3" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mr-2">自动检测系统偏好</button>
+                    <button id="test4" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">清除localStorage</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 测试卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">测试卡片 1</h3>
+                <p class="text-gray-600 dark:text-gray-300">背景应该是白色/深灰色</p>
+            </div>
+
+            <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">测试卡片 2</h3>
+                <p class="text-gray-600 dark:text-gray-300">背景应该是浅灰色/中灰色</p>
+            </div>
+
+            <div class="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-200 dark:border-blue-700 shadow">
+                <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">测试卡片 3</h3>
+                <p class="text-blue-700 dark:text-blue-300">背景应该是浅蓝色/深蓝色</p>
+            </div>
+        </div>
+
+        <!-- 按钮测试 -->
+        <div class="flex flex-wrap gap-4 mb-8">
+            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+                主要按钮
+            </button>
+            <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                次要按钮
+            </button>
+            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800">
+                轮廓按钮
+            </button>
+        </div>
+
+        <!-- 调试信息 -->
+        <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
+            <h2 class="text-xl font-semibold text-yellow-900 dark:text-yellow-100 mb-4">调试说明</h2>
+            <div class="text-sm text-yellow-800 dark:text-yellow-200 space-y-2">
+                <p>• 检查浏览器控制台是否有JavaScript错误</p>
+                <p>• 确认Tailwind CSS是否正确加载（点击按钮后样式应该改变）</p>
+                <p>• 如果样式不改变，可能是CSS文件加载问题或浏览器缓存问题</p>
+                <p>• 尝试硬刷新页面（Ctrl+F5 或 Cmd+Shift+R）</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateStatus() {
+            const html = document.documentElement;
+            const htmlClass = html.className;
+            const localStorageValue = localStorage.getItem('theme') || 'null';
+            const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+            document.getElementById('htmlClass').textContent = htmlClass;
+            document.getElementById('localStorage').textContent = localStorageValue;
+            document.getElementById('systemPref').textContent = systemPref;
+        }
+
+        function setTheme(theme) {
+            const html = document.documentElement;
+            html.classList.remove('light', 'dark');
+            html.classList.add(theme);
+            localStorage.setItem('theme', theme);
+            console.log('Theme set to:', theme);
+            updateStatus();
+        }
+
+        function detectSystemTheme() {
+            const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            setTheme(systemPref);
+        }
+
+        function clearLocalStorage() {
+            localStorage.removeItem('theme');
+            console.log('LocalStorage cleared');
+            updateStatus();
+        }
+
+        // 事件监听器
+        document.getElementById('test1').addEventListener('click', () => setTheme('dark'));
+        document.getElementById('test2').addEventListener('click', () => setTheme('light'));
+        document.getElementById('test3').addEventListener('click', detectSystemTheme);
+        document.getElementById('test4').addEventListener('click', clearLocalStorage);
+
+        // 监听系统主题变化
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', (e) => {
+            console.log('System theme changed to:', e.matches ? 'dark' : 'light');
+            updateStatus();
+        });
+
+        // 初始化
+        window.addEventListener('load', () => {
+            console.log('Page loaded');
+            console.log('Initial HTML class:', document.documentElement.className);
+            console.log('Initial localStorage:', localStorage.getItem('theme'));
+            updateStatus();
+        });
+    </script>
+</body>
+</html>

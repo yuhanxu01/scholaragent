@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜间模式测试</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <style>
+        /* 添加过渡动画 */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
+                夜间模式功能测试
+            </h1>
+
+            <!-- 主题切换按钮 -->
+            <div class="mb-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <button 
+                    id="themeToggle"
+                    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+                >
+                    切换到夜间模式
+                </button>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    当前主题: <span id="currentTheme">light</span>
+                </p>
+            </div>
+
+            <!-- 测试卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">卡片 1</h3>
+                    <p class="text-gray-600 dark:text-gray-300">这是白色背景的测试卡片</p>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">卡片 2</h3>
+                    <p class="text-gray-600 dark:text-gray-300">这是灰色背景的测试卡片</p>
+                </div>
+
+                <div class="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-200 dark:border-blue-700 shadow">
+                    <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">卡片 3</h3>
+                    <p class="text-blue-700 dark:text-blue-300">这是蓝色背景的测试卡片</p>
+                </div>
+            </div>
+
+            <!-- 测试按钮 -->
+            <div class="flex flex-wrap gap-4 mb-8">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+                    主要按钮
+                </button>
+                <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                    次要按钮
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800">
+                    轮廓按钮
+                </button>
+            </div>
+
+            <!-- 调试信息 -->
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                <h2 class="text-xl font-semibold text-yellow-900 dark:text-yellow-100 mb-4">
+                    调试信息
+                </h2>
+                <div class="text-sm text-yellow-800 dark:text-yellow-200 space-y-2">
+                    <p>HTML Classes: <span id="htmlClasses" class="font-mono bg-yellow-100 dark:bg-yellow-900/50 px-2 py-1 rounded"></span></p>
+                    <p>LocalStorage: <span id="localStorageValue" class="font-mono bg-yellow-100 dark:bg-yellow-900/50 px-2 py-1 rounded"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const currentThemeSpan = document.getElementById('currentTheme');
+        const htmlClassesSpan = document.getElementById('htmlClasses');
+        const localStorageValueSpan = document.getElementById('localStorageValue');
+
+        function updateDebugInfo() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+            const currentTheme = isDark ? 'dark' : 'light';
+            const savedTheme = localStorage.getItem('theme');
+
+            currentThemeSpan.textContent = currentTheme;
+            htmlClassesSpan.textContent = html.className;
+            localStorageValueSpan.textContent = savedTheme || 'null';
+            
+            // 更新按钮文本
+            themeToggle.textContent = isDark ? '切换到日间模式' : '切换到夜间模式';
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+
+            // 移除所有主题类
+            html.classList.remove('light', 'dark');
+            // 添加新主题类
+            html.classList.add(newTheme);
+            // 保存到localStorage
+            localStorage.setItem('theme', newTheme);
+
+            console.log('Theme toggled to:', newTheme);
+            console.log('HTML classes:', html.className);
+            console.log('LocalStorage theme:', localStorage.getItem('theme'));
+
+            updateDebugInfo();
+        }
+
+        // 初始化
+        function init() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+            // 设置初始主题
+            document.documentElement.classList.remove('light', 'dark');
+            document.documentElement.classList.add(initialTheme);
+
+            console.log('Initial theme:', initialTheme);
+            console.log('Saved theme:', savedTheme);
+            console.log('System preference:', systemPrefersDark ? 'dark' : 'light');
+
+            updateDebugInfo();
+        }
+
+        // 监听系统主题变化
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'dark' : 'light';
+                document.documentElement.classList.remove('light', 'dark');
+                document.documentElement.classList.add(newTheme);
+                console.log('System theme changed to:', newTheme);
+                updateDebugInfo();
+            }
+        });
+
+        // 事件监听
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', init);
+
+        // 立即初始化（如果DOM已经加载完成）
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>

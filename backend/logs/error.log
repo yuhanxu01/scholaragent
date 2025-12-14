@@ -1,0 +1,1185 @@
+ERROR 2025-12-08 15:06:05,262 log 96619 8564089024 Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 19, in __getattr__
+    return storage_object[key]
+           ~~~~~~~~~~~~~~^^^^^
+KeyError: 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 58, in __getitem__
+    return getattr(self._connections, alias)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 121, in __getattr__
+    return getattr(storage, key)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 21, in __getattr__
+    raise AttributeError(f"{self!r} object has no attribute {key!r}")
+AttributeError: <asgiref.local._CVar object at 0x1061e0f50> object has no attribute 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/middleware.py", line 20, in process_request
+    request.session = self.SessionStore(session_key)
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 16, in __init__
+    self._cache = caches[settings.SESSION_CACHE_ALIAS]
+                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 61, in __getitem__
+    raise self.exception_class(f"The connection '{alias}' doesn't exist.")
+django.core.cache.backends.base.InvalidCacheBackendError: The connection 'sessions' doesn't exist.
+ERROR 2025-12-08 15:06:05,336 log 96619 8564089024 Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 19, in __getattr__
+    return storage_object[key]
+           ~~~~~~~~~~~~~~^^^^^
+KeyError: 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 58, in __getitem__
+    return getattr(self._connections, alias)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 121, in __getattr__
+    return getattr(storage, key)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 21, in __getattr__
+    raise AttributeError(f"{self!r} object has no attribute {key!r}")
+AttributeError: <asgiref.local._CVar object at 0x1061e0f50> object has no attribute 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/middleware.py", line 20, in process_request
+    request.session = self.SessionStore(session_key)
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 16, in __init__
+    self._cache = caches[settings.SESSION_CACHE_ALIAS]
+                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 61, in __getitem__
+    raise self.exception_class(f"The connection '{alias}' doesn't exist.")
+django.core.cache.backends.base.InvalidCacheBackendError: The connection 'sessions' doesn't exist.
+ERROR 2025-12-08 15:06:05,393 log 96619 8564089024 Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 19, in __getattr__
+    return storage_object[key]
+           ~~~~~~~~~~~~~~^^^^^
+KeyError: 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 58, in __getitem__
+    return getattr(self._connections, alias)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 121, in __getattr__
+    return getattr(storage, key)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 21, in __getattr__
+    raise AttributeError(f"{self!r} object has no attribute {key!r}")
+AttributeError: <asgiref.local._CVar object at 0x1061e0f50> object has no attribute 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/middleware.py", line 20, in process_request
+    request.session = self.SessionStore(session_key)
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 16, in __init__
+    self._cache = caches[settings.SESSION_CACHE_ALIAS]
+                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 61, in __getitem__
+    raise self.exception_class(f"The connection '{alias}' doesn't exist.")
+django.core.cache.backends.base.InvalidCacheBackendError: The connection 'sessions' doesn't exist.
+ERROR 2025-12-08 15:09:51,939 log 97429 8564089024 Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 19, in __getattr__
+    return storage_object[key]
+           ~~~~~~~~~~~~~~^^^^^
+KeyError: 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 58, in __getitem__
+    return getattr(self._connections, alias)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 121, in __getattr__
+    return getattr(storage, key)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 21, in __getattr__
+    raise AttributeError(f"{self!r} object has no attribute {key!r}")
+AttributeError: <asgiref.local._CVar object at 0x1032711d0> object has no attribute 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/middleware.py", line 20, in process_request
+    request.session = self.SessionStore(session_key)
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 16, in __init__
+    self._cache = caches[settings.SESSION_CACHE_ALIAS]
+                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 61, in __getitem__
+    raise self.exception_class(f"The connection '{alias}' doesn't exist.")
+django.core.cache.backends.base.InvalidCacheBackendError: The connection 'sessions' doesn't exist.
+ERROR 2025-12-08 15:09:52,009 log 97429 8564089024 Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 19, in __getattr__
+    return storage_object[key]
+           ~~~~~~~~~~~~~~^^^^^
+KeyError: 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 58, in __getitem__
+    return getattr(self._connections, alias)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 121, in __getattr__
+    return getattr(storage, key)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 21, in __getattr__
+    raise AttributeError(f"{self!r} object has no attribute {key!r}")
+AttributeError: <asgiref.local._CVar object at 0x1032711d0> object has no attribute 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/middleware.py", line 20, in process_request
+    request.session = self.SessionStore(session_key)
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 16, in __init__
+    self._cache = caches[settings.SESSION_CACHE_ALIAS]
+                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 61, in __getitem__
+    raise self.exception_class(f"The connection '{alias}' doesn't exist.")
+django.core.cache.backends.base.InvalidCacheBackendError: The connection 'sessions' doesn't exist.
+ERROR 2025-12-08 15:09:52,066 log 97429 8564089024 Internal Server Error: /api/documents/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 19, in __getattr__
+    return storage_object[key]
+           ~~~~~~~~~~~~~~^^^^^
+KeyError: 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 58, in __getitem__
+    return getattr(self._connections, alias)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 121, in __getattr__
+    return getattr(storage, key)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/asgiref/local.py", line 21, in __getattr__
+    raise AttributeError(f"{self!r} object has no attribute {key!r}")
+AttributeError: <asgiref.local._CVar object at 0x1032711d0> object has no attribute 'sessions'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/middleware.py", line 20, in process_request
+    request.session = self.SessionStore(session_key)
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 16, in __init__
+    self._cache = caches[settings.SESSION_CACHE_ALIAS]
+                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/connection.py", line 61, in __getitem__
+    raise self.exception_class(f"The connection '{alias}' doesn't exist.")
+django.core.cache.backends.base.InvalidCacheBackendError: The connection 'sessions' doesn't exist.
+ERROR 2025-12-08 16:46:49,963 log 51290 6202208256 Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 2596, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 450, in login
+    return LoginView.as_view(**defaults)(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/auth/views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/generic/edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/auth/views.py", line 108, in form_valid
+    auth_login(self.request, form.get_user())
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/auth/__init__.py", line 187, in login
+    request.session.cycle_key()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/base.py", line 434, in cycle_key
+    self.create()
+    ~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 55, in create
+    self._session_key = self._get_new_session_key()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/base.py", line 198, in _get_new_session_key
+    if not self.exists(session_key):
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 117, in exists
+    bool(session_key) and (self.cache_key_prefix + session_key) in self._cache
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/cache/backends/base.py", line 301, in __contains__
+    return self.has_key(key)
+           ~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 211, in has_key
+    return self._cache.has_key(key)
+           ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 131, in has_key
+    return bool(client.exists(key))
+                ~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/commands/core.py", line 1804, in exists
+    return self.execute_command("EXISTS", *names, keys=names)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 2598, in get_connection
+    connection = self.make_connection()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 2648, in make_connection
+    return self.connection_class(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 1255, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+ERROR 2025-12-08 17:01:16,157 log 58447 6341865472 Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect(error)
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 450, in login
+    return LoginView.as_view(**defaults)(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/auth/views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/generic/edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/auth/views.py", line 108, in form_valid
+    auth_login(self.request, form.get_user())
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/auth/__init__.py", line 187, in login
+    request.session.cycle_key()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/base.py", line 434, in cycle_key
+    self.create()
+    ~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 55, in create
+    self._session_key = self._get_new_session_key()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/base.py", line 198, in _get_new_session_key
+    if not self.exists(session_key):
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/sessions/backends/cache.py", line 117, in exists
+    bool(session_key) and (self.cache_key_prefix + session_key) in self._cache
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/cache/backends/base.py", line 301, in __contains__
+    return self.has_key(key)
+           ~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 211, in has_key
+    return self._cache.has_key(key)
+           ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 131, in has_key
+    return bool(client.exists(key))
+                ~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/commands/core.py", line 1804, in exists
+    return self.execute_command("EXISTS", *names, keys=names)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ERROR 2025-12-09 03:05:23,524 log 84266 6165344256 Service Unavailable: /api/ai/chat/
+ERROR 2025-12-09 04:19:03,301 log 96906 6171209728 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:19:45,836 log 96906 6171209728 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:20:48,125 log 1051 6135672832 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:26:30,203 log 3320 6196441088 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:26:43,042 log 3320 6196441088 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:31:32,800 log 4289 6130462720 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:31:44,418 log 4289 6130462720 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:34:08,386 log 5219 6156759040 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:37:20,675 log 5592 6180220928 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:37:29,572 log 5592 6163394560 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:40:40,320 log 5592 6163394560 Internal Server Error: /api/documents/
+ERROR 2025-12-09 04:45:18,457 log 7893 6136885248 Internal Server Error: /api/documents/
+ERROR 2025-12-09 06:51:20,335 log 19923 6150877184 Internal Server Error: /api/knowledge/concepts/e61fa6d9-ee9b-42f5-91b6-1c788e4714fb/graph/
+ERROR 2025-12-09 06:51:20,356 log 19923 6150877184 Internal Server Error: /api/knowledge/concepts/e61fa6d9-ee9b-42f5-91b6-1c788e4714fb/graph/
+ERROR 2025-12-09 07:39:39,803 log 46363 6198669312 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-09 07:39:39,824 log 46363 6198669312 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-09 07:39:40,296 log 46363 6198669312 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-09 07:39:40,924 log 46363 6198669312 Internal Server Error: /api/documents/
+ERROR 2025-12-09 07:39:40,940 log 46363 6198669312 Internal Server Error: /api/documents/
+ERROR 2025-12-09 07:39:41,675 log 46363 6198669312 Internal Server Error: /api/documents/
+ERROR 2025-12-09 07:39:43,513 log 46363 6198669312 Internal Server Error: /api/documents/
+ERROR 2025-12-09 07:39:43,535 log 46363 6198669312 Internal Server Error: /api/documents/
+ERROR 2025-12-09 17:37:42,240 log 11121 6161510400 Internal Server Error: /admin/documents/documentchunk/f0cd7986-c8eb-4ab8-a567-3a39981700e4/change/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 830, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/forms/models.py", line 675, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/forms/models.py", line 336, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (metadata) specified for DocumentChunk
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 710, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 247, in inner
+    return view(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1945, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1798, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1836, in _changeform_view
+    ModelForm = self.get_form(
+        request, obj, change=not add, fields=flatten_fieldsets(fieldsets)
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 832, in get_form
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Unknown field(s) (metadata) specified for DocumentChunk. Check fields/fieldsets/exclude attributes of class DocumentChunkAdmin.
+ERROR 2025-12-09 17:37:46,726 log 11121 6161510400 Internal Server Error: /admin/documents/documentchunk/053fe7ff-5486-4755-ba36-0e066a91b975/change/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 830, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/forms/models.py", line 675, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/forms/models.py", line 336, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (metadata) specified for DocumentChunk
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 710, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 247, in inner
+    return view(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1945, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1798, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1836, in _changeform_view
+    ModelForm = self.get_form(
+        request, obj, change=not add, fields=flatten_fieldsets(fieldsets)
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/contrib/admin/options.py", line 832, in get_form
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Unknown field(s) (metadata) specified for DocumentChunk. Check fields/fieldsets/exclude attributes of class DocumentChunkAdmin.
+ERROR 2025-12-10 04:45:09,154 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:09,177 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:09,644 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:20,715 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:20,740 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:21,211 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:22,337 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:22,351 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:24,954 log 26856 13052751872 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:24,966 log 26856 13052751872 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:25,530 log 26856 13069578240 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:25,542 log 26856 13069578240 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:36,284 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:36,300 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:55,193 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:55,216 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:55,694 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:56,932 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:56,954 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:57,434 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:57,948 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:57,969 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:58,449 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:58,899 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:58,918 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:45:59,407 log 26856 13035925504 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:47:07,954 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:47:07,969 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-10 04:47:08,469 log 26856 6167982080 Internal Server Error: /api/knowledge/notes/
+ERROR 2025-12-11 07:14:13,167 log 26236 6134099968 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:43:43,030 log 26236 6134099968 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:43:52,035 log 26236 6134099968 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:45:03,321 log 26236 6134099968 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:45:03,605 log 26236 6134099968 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:51:53,659 log 30387 6194294784 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:52:15,413 log 30387 6193721344 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:58:00,180 log 31104 6198063104 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:58:14,362 log 31104 6198063104 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 07:58:15,024 log 31104 6198063104 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 08:23:56,567 log 33385 8564089024 Internal Server Error: /api/study/vocabulary
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/utils/deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost/api/study/vocabulary/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-12-11 16:32:04,818 log 86353 6325039104 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:32:04,830 log 86353 6341865472 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:32:04,840 log 86353 6325039104 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:32:04,849 log 86353 6159544320 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:32:47,957 log 86762 6166753280 Internal Server Error: /api/study/vocabulary/stats/
+ERROR 2025-12-11 16:33:09,702 log 90809 6127366144 Internal Server Error: /api/study/vocabulary/stats/
+ERROR 2025-12-11 16:33:38,836 log 92787 6172864512 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:34:00,294 log 93030 6133166080 Internal Server Error: /api/study/vocabulary/create/
+ERROR 2025-12-11 16:34:18,646 log 93030 6133166080 Internal Server Error: /api/study/vocabulary/batch-create/
+ERROR 2025-12-11 16:34:18,677 log 93030 6133166080 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:35:33,849 log 93030 6149419008 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:35:33,866 log 93030 6149419008 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:35:33,883 log 93030 6166245376 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:35:33,895 log 93030 6132592640 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:36:09,295 log 93569 12901707776 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:36:09,297 log 93569 6161739776 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 16:36:27,069 log 93569 6161739776 Internal Server Error: /api/study/vocabulary/update-missing-definitions/
+ERROR 2025-12-11 17:05:16,677 log 98384 6196637696 Internal Server Error: /api/billing/token-usage/user_records/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column users_customuser.wechat_openid does not exist
+LINE 1: ...r"."likes_count", "users_customuser"."google_id", "users_cus...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/views.py", line 330, in perform_authentication
+    request.user
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    num = len(clone)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column users_customuser.wechat_openid does not exist
+LINE 1: ...r"."likes_count", "users_customuser"."google_id", "users_cus...
+                                                             ^
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column users_customuser.wechat_openid does not exist
+LINE 1: ...r"."likes_count", "users_customuser"."google_id", "users_cus...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/views.py", line 472, in handle_exception
+    response = exception_handler(exc, context)
+  File "/Users/renqing/Downloads/scholaragent/backend/core/exception_handlers.py", line 28, in custom_exception_handler
+    'user': str(request.user) if request else 'anonymous',
+                ^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    num = len(clone)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column users_customuser.wechat_openid does not exist
+LINE 1: ...r"."likes_count", "users_customuser"."google_id", "users_cus...
+                                                             ^
+
+ERROR 2025-12-13 05:28:56,079 log 90688 6138802176 Internal Server Error: /api/study/vocabulary/export/
+ERROR 2025-12-13 05:28:59,639 log 90688 6155628544 Internal Server Error: /api/study/vocabulary/export/
+ERROR 2025-12-13 05:29:14,698 log 90688 6172454912 Internal Server Error: /api/study/vocabulary/export/
+ERROR 2025-12-14 02:53:12,714 log 24669 6255718400 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable
+ERROR 2025-12-14 02:53:13,747 log 24669 6255718400 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable
+ERROR 2025-12-14 02:55:22,944 log 42094 6199767040 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable
+ERROR 2025-12-14 02:55:23,979 log 42094 6199767040 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable
+ERROR 2025-12-14 02:59:06,264 log 42094 6216019968 Internal Server Error: /api/auth/friends/request/
+ERROR 2025-12-14 03:00:16,376 log 44419 12935360512 Internal Server Error: /api/auth/friends/request/
+ERROR 2025-12-14 03:01:42,675 log 44951 6325039104 Internal Server Error: /api/auth/friends/request/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type Friend is not JSON serializable
+ERROR 2025-12-14 03:11:40,644 log 48071 6123401216 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable
+ERROR 2025-12-14 03:11:41,708 log 48071 6123401216 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable
+ERROR 2025-12-14 03:12:20,174 log 48267 6167654400 Internal Server Error: /api/auth/chat/conversations/
+ERROR 2025-12-14 03:12:21,203 log 48267 6167654400 Internal Server Error: /api/auth/chat/conversations/
+ERROR 2025-12-14 03:18:52,740 log 48372 6192902144 Internal Server Error: /api/auth/groups/
+ERROR 2025-12-14 03:38:00,261 log 49561 6182858752 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable
+ERROR 2025-12-14 03:38:01,321 log 49561 6182858752 Internal Server Error: /api/auth/chat/conversations/
+Traceback (most recent call last):
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+        data, cls=self.encoder_class,
+        indent=indent, ensure_ascii=self.ensure_ascii,
+        allow_nan=not self.strict, separators=separators
+    )
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/renqing/miniconda3/lib/python3.13/site-packages/rest_framework/utils/encoders.py", line 67, in default
+    return super().default(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/renqing/miniconda3/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CustomUser is not JSON serializable

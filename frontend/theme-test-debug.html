@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜间模式调试测试</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        /* 确保样式优先级正确 */
+        .dark-mode-bg {
+            background-color: #1f2937;
+            color: #f9fafb;
+        }
+        .light-mode-bg {
+            background-color: #ffffff;
+            color: #111827;
+        }
+    </style>
+</head>
+<body class="transition-colors duration-300">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-6">夜间模式调试测试</h1>
+        
+        <!-- 状态显示 -->
+        <div class="mb-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+            <p class="mb-2">当前主题: <span id="currentTheme" class="font-mono"></span></p>
+            <p class="mb-2">HTML classes: <span id="htmlClasses" class="font-mono text-sm break-all"></span></p>
+            <p class="mb-2">localStorage theme: <span id="storedTheme" class="font-mono"></span></p>
+        </div>
+
+        <!-- 手动切换按钮 -->
+        <div class="mb-8 space-x-4">
+            <button onclick="setTheme('light')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                强制设置为日间模式
+            </button>
+            <button onclick="setTheme('dark')" class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800">
+                强制设置为夜间模式
+            </button>
+            <button onclick="toggleTheme()" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                切换主题
+            </button>
+            <button onclick="clearStorage()" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+                清除localStorage
+            </button>
+        </div>
+
+        <!-- 测试元素 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">卡片 1</h2>
+                <p class="text-gray-700 dark:text-gray-300">这是使用 Tailwind dark: 前缀的卡片</p>
+                <button class="mt-4 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm">
+                    测试按钮
+                </button>
+            </div>
+
+            <div class="p-6 light-mode-bg dark-mode-bg rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">卡片 2</h2>
+                <p>这是使用自定义 CSS 类的卡片</p>
+                <button class="mt-4 px-3 py-1 bg-purple-500 hover:bg-purple-600 text-white rounded text-sm">
+                    测试按钮
+                </button>
+            </div>
+        </div>
+
+        <!-- 颜色测试 -->
+        <div class="mt-8 p-6 bg-gray-50 dark:bg-gray-900 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">颜色测试</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-3 bg-red-100 dark:bg-red-900 rounded text-red-800 dark:text-red-200">红色</div>
+                <div class="p-3 bg-green-100 dark:bg-green-900 rounded text-green-800 dark:text-green-200">绿色</div>
+                <div class="p-3 bg-blue-100 dark:bg-blue-900 rounded text-blue-800 dark:text-blue-200">蓝色</div>
+                <div class="p-3 bg-yellow-100 dark:bg-yellow-900 rounded text-yellow-800 dark:text-yellow-200">黄色</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 主题管理函数
+        function setTheme(theme) {
+            console.log('设置主题:', theme);
+            document.documentElement.classList.remove('light', 'dark');
+            document.documentElement.classList.add(theme);
+            localStorage.setItem('theme', theme);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        }
+
+        function clearStorage() {
+            localStorage.removeItem('theme');
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            const storedTheme = localStorage.getItem('theme');
+            const htmlClasses = document.documentElement.className;
+
+            document.getElementById('currentTheme').textContent = currentTheme;
+            document.getElementById('storedTheme').textContent = storedTheme || 'null';
+            document.getElementById('htmlClasses').textContent = htmlClasses;
+
+            console.log('更新显示:', {
+                currentTheme,
+                storedTheme,
+                htmlClasses
+            });
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM 加载完成');
+            
+            // 获取保存的主题或使用系统偏好
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const initialTheme = savedTheme || systemTheme;
+
+            console.log('初始化主题:', { savedTheme, systemTheme, initialTheme });
+
+            // 应用主题
+            document.documentElement.classList.add(initialTheme);
+            updateDisplay();
+
+            // 监听系统主题变化
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    const newTheme = e.matches ? 'dark' : 'light';
+                    document.documentElement.classList.remove('light', 'dark');
+                    document.documentElement.classList.add(newTheme);
+                    updateDisplay();
+                }
+            });
+        });
+
+        // 页面加载后也更新一次显示
+        window.addEventListener('load', updateDisplay);
+    </script>
+</body>
+</html>

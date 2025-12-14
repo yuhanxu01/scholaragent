@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档处理跟踪测试</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div id="root"></div>
+
+    <script>
+        const { useState, useEffect } = React;
+        const { FileText, Upload, Loader2, CheckCircle, AlertCircle, Clock, Brain, Database, FileCode, Play } = lucide;
+
+        function SimpleProcessingTracker({ fileName, status = 'processing' }) {
+            const [elapsedTime, setElapsedTime] = useState(0);
+            const [startTime] = useState(Date.now());
+
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setElapsedTime(Date.now() - startTime);
+                }, 100);
+                return () => clearInterval(interval);
+            }, [startTime]);
+
+            const formatTime = (ms) => {
+                const seconds = Math.floor(ms / 1000);
+                const minutes = Math.floor(seconds / 60);
+                return minutes > 0 ? `${minutes}m ${seconds % 60}s` : `${seconds}s`;
+            };
+
+            const getStatusIcon = () => {
+                switch (status) {
+                    case 'completed':
+                        return React.createElement(CheckCircle, { className: "w-5 h-5 text-green-500" });
+                    case 'error':
+                        return React.createElement(AlertCircle, { className: "w-5 h-5 text-red-500" });
+                    case 'processing':
+                        return React.createElement(Loader2, { className: "w-5 h-5 text-blue-500 animate-spin" });
+                    default:
+                        return React.createElement('div', { className: "w-5 h-5 border-2 border-gray-300 rounded-full" });
+                }
+            };
+
+            const getProgress = () => {
+                if (status === 'completed') return 100;
+                if (status !== 'processing') return 0;
+                // 处理中时显示估算进度（30秒完成）
+                const elapsed = Date.now() - startTime;
+                return Math.min(95, Math.floor((elapsed / 30000) * 100));
+            };
+
+            return React.createElement('div', {
+                className: "bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden mb-4"
+            }, [
+                // Header
+                React.createElement('div', {
+                    key: 'header',
+                    className: "flex items-center justify-between p-4 bg-gray-50"
+                }, [
+                    React.createElement('div', {
+                        key: 'title',
+                        className: "flex items-center space-x-3"
+                    }, [
+                        React.createElement(FileText, { key: 'icon', className: "w-5 h-5 text-gray-600" }),
+                        React.createElement('div', { key: 'text' }, [
+                            React.createElement('h3', { key: 'name', className: "font-medium text-gray-900" }, fileName),
+                            React.createElement('div', { key: 'info', className: "flex items-center space-x-4 text-sm text-gray-500 mt-1" }, [
+                                React.createElement('span', { key: 'time', className: "flex items-center space-x-1" }, [
+                                    React.createElement(Clock, { key: 'clock', className: "w-3 h-3" }),
+                                    React.createElement('span', { key: 'timeText' }, formatTime(elapsedTime))
+                                ]),
+                                React.createElement('span', {
+                                    key: 'status',
+                                    className: status === 'processing' ? "text-blue-600 font-medium" : "text-gray-600"
+                                }, status === 'processing' ? '正在处理' : status === 'completed' ? '处理完成' : '等待处理')
+                            ])
+                        ])
+                    ]),
+                    React.createElement('div', {
+                        key: 'progress',
+                        className: "flex items-center space-x-3"
+                    }, [
+                        React.createElement('div', {
+                            key: 'bar',
+                            className: "w-32 bg-gray-200 rounded-full h-2"
+                        }, [
+                            React.createElement('div', {
+                                key: 'fill',
+                                className: status === 'completed' ? "bg-green-500 h-2 rounded-full transition-all duration-300" : "bg-blue-500 h-2 rounded-full transition-all duration-300",
+                                style: { width: `${getProgress()}%` }
+                            })
+                        ]),
+                        getStatusIcon()
+                    ])
+                ]),
+
+                // Details
+                React.createElement('div', {
+                    key: 'details',
+                    className: "p-4 border-t border-gray-200"
+                }, [
+                    React.createElement('h4', { key: 'stepsTitle', className: "text-sm font-medium text-gray-900 mb-3" }, "处理步骤"),
+                    React.createElement('div', { key: 'steps', className: "space-y-2" }, [
+                        ['文件上传', Upload],
+                        ['解析文档结构', FileCode],
+                        ['AI智能分析', Brain],
+                        ['建立索引', Database]
+                    ].map(([step, Icon], index) =>
+                        React.createElement('div', {
+                            key: step,
+                            className: "flex items-center space-x-3 text-sm"
+                        }, [
+                            React.createElement(Icon, {
+                                key: 'icon',
+                                className: status === 'completed' || (status === 'processing' && index === 0) ? "w-4 h-4 text-green-500" : "w-4 h-4 text-gray-400"
+                            }),
+                            React.createElement('span', {
+                                key: 'text',
+                                className: status === 'completed' || (status === 'processing' && index === 0) ? "text-gray-900" : "text-gray-500"
+                            }, step)
+                        ])
+                    )),
+
+                    status === 'completed' ?
+                        React.createElement('div', {
+                            key: 'success',
+                            className: "mt-4 p-3 bg-green-50 border border-green-200 rounded-lg"
+                        }, [
+                            React.createElement('p', { key: 'successText', className: "text-sm text-green-800" }, "文档已成功处理，可以开始使用了！")
+                        ]) : null
+                ])
+            ]);
+        }
+
+        function TestDemo() {
+            const [documents, setDocuments] = React.useState([]);
+
+            const addDocument = () => {
+                const doc = {
+                    id: Date.now(),
+                    name: `测试文档_${documents.length + 1}.pdf`,
+                    status: 'processing'
+                };
+                setDocuments(prev => [...prev, doc]);
+
+                // 30秒后标记为完成
+                setTimeout(() => {
+                    setDocuments(prev =>
+                        prev.map(d => d.id === doc.id ? { ...d, status: 'completed' } : d)
+                    );
+                }, 30000);
+            };
+
+            const clearAll = () => {
+                setDocuments([]);
+            };
+
+            return React.createElement('div', {
+                className: "min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8"
+            }, [
+                React.createElement('div', {
+                    key: 'container',
+                    className: "max-w-4xl mx-auto"
+                }, [
+                    React.createElement('h1', {
+                        key: 'title',
+                        className: "text-4xl font-bold text-gray-900 mb-4 text-center"
+                    }, "文档处理跟踪测试"),
+
+                    React.createElement('div', {
+                        key: 'controls',
+                        className: "text-center mb-8"
+                    }, [
+                        React.createElement('button', {
+                            key: 'add',
+                            onClick: addDocument,
+                            className: "px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mr-4"
+                        }, [
+                            React.createElement(Upload, { key: 'icon', className: "w-5 h-5 inline mr-2" }),
+                            "添加测试文档"
+                        ]),
+                        React.createElement('button', {
+                            key: 'clear',
+                            onClick: clearAll,
+                            className: "px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                        }, "清空列表")
+                    ]),
+
+                    documents.length > 0 ?
+                        React.createElement('div', {
+                            key: 'list',
+                            className: "space-y-4"
+                        }, documents.map(doc =>
+                            React.createElement(SimpleProcessingTracker, {
+                                key: doc.id,
+                                fileName: doc.name,
+                                status: doc.status
+                            })
+                        )) :
+                        React.createElement('div', {
+                            key: 'empty',
+                            className: "text-center py-12 bg-white rounded-lg"
+                        }, [
+                            React.createElement('p', {
+                                key: 'text',
+                                className: "text-gray-500"
+                            }, "点击上方按钮添加测试文档")
+                        ])
+                ])
+            ]);
+        }
+
+        // 渲染应用
+        ReactDOM.render(React.createElement(TestDemo), document.getElementById('root'));
+    </script>
+</body>
+</html>
