@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selection Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-area {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .instructions {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .debug-info {
+            background-color: #fffacd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>文本选择测试页面</h1>
+
+    <div class="instructions">
+        <h2>测试说明</h2>
+        <p>1. 打开浏览器控制台（F12）</p>
+        <p>2. 在下方区域选择任意文本</p>
+        <p>3. 观察控制台日志，查看是否有调试信息输出</p>
+        <p>4. 查看是否出现工具栏</p>
+    </div>
+
+    <div class="debug-info">
+        <strong>控制台应该显示：</strong><br>
+        🔧 Global dictionary hook initialized<br>
+        👂 Adding selectionchange listener<br>
+        🔍 Selection change detected<br>
+        ✅ Text selected: [选中的文本]<br>
+        ⏰ Timeout triggered, showing toolbar<br>
+        🎯 Toolbar position: [坐标]<br>
+        ✨ Showing toolbar for: [文本]<br>
+        🎨 GlobalSelectionToolbar mounted with text: [文本]
+    </div>
+
+    <div class="test-area">
+        <h2>测试区域 1 - 英文文本</h2>
+        <p>
+            This is a sample paragraph for testing the global selection functionality.
+            You can select any word or phrase in this text to test if the selection toolbar appears.
+            Try selecting words like <strong>functionality</strong>, <strong>paragraph</strong>, or <strong>selection</strong>.
+        </p>
+        <p>
+            The global selection toolbar should appear when you select text, providing options
+            for dictionary lookup, copy, and other actions. This is a comprehensive test of the
+            text selection and toolbar display system.
+        </p>
+    </div>
+
+    <div class="test-area">
+        <h2>测试区域 2 - 中文文本</h2>
+        <p>
+            这是一个用于测试全局选择功能的示例段落。您可以在此文本中选择任意单词或短语
+            来测试选择工具栏是否正常显示。尝试选择像<strong>功能</strong>、
+            <strong>测试</strong>或<strong>工具栏</strong>这样的词汇。
+        </p>
+        <p>
+            全局选择工具栏应该在您选择文本时出现，提供词典查询、复制和其他操作的选项。
+            这是对文本选择和工具栏显示系统的全面测试。
+        </p>
+    </div>
+
+    <div class="test-area">
+        <h2>测试区域 3 - 混合文本</h2>
+        <p>
+            Here is some mixed English and Chinese text: 技术文档 implementation 技术架构.
+            You can test selection with both English words like <strong>implementation</strong>
+            and Chinese characters like <strong>技术架构</strong>.
+        </p>
+    </div>
+
+    <div class="instructions">
+        <h2>故障排除</h2>
+        <ul>
+            <li><strong>没有看到日志</strong> - 可能Hook没有正确加载</li>
+            <li><strong>有日志但没工具栏</strong> - 可能CSS样式问题或组件渲染问题</li>
+            <li><strong>工具栏位置错误</strong> - 坐标计算问题</li>
+            <li><strong>选择不触发</strong> - 可能页面有其他选择监听器冲突</li>
+        </ul>
+    </div>
+
+    <script>
+        // 添加一些额外的调试信息
+        console.log('📄 Test page loaded');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 DOM content loaded');
+        });
+    </script>
+</body>
+</html>

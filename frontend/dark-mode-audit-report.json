@@ -1,0 +1,31 @@
+{
+  "totalFiles": 106,
+  "filesWithIssues": 2,
+  "totalIssues": 4,
+  "issuesByFile": {
+    "/Users/renqing/Downloads/scholaragent/frontend/src/components/common/AIAssistantChat.tsx": [
+      {
+        "line": 322,
+        "pattern": "bg-gray-50",
+        "className": "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
+      },
+      {
+        "line": 324,
+        "pattern": "bg-gray-50",
+        "className": "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
+      }
+    ],
+    "/Users/renqing/Downloads/scholaragent/frontend/src/components/debug/ThemeTestButton.tsx": [
+      {
+        "line": 36,
+        "pattern": "bg-white",
+        "className": "bg-white text-red-500 px-4 py-2 rounded font-semibold hover:bg-gray-100 transition-colors"
+      },
+      {
+        "line": 36,
+        "pattern": "bg-gray-100",
+        "className": "bg-white text-red-500 px-4 py-2 rounded font-semibold hover:bg-gray-100 transition-colors"
+      }
+    ]
+  }
+}

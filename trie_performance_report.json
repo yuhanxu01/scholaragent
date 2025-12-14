@@ -1,0 +1,49 @@
+{
+  "timestamp": 1765492752.689557,
+  "test_summary": {
+    "trie": {
+      "name": "Trie Dictionary",
+      "status": "success",
+      "word_count": 3153829,
+      "avg_lookup_time": 9.751319885253906e-07,
+      "avg_search_time": 9.020169576009115e-06,
+      "avg_autocomplete_time": 3.7670135498046877e-06
+    },
+    "stardict": {
+      "name": "StarDict SQLite",
+      "status": "success",
+      "word_count": 3402564,
+      "avg_lookup_time": 0.26941840171813963,
+      "avg_search_time": 0.42587029933929443,
+      "avg_autocomplete_time": 0
+    },
+    "simple": {
+      "name": "Simple Dictionary",
+      "status": "success",
+      "word_count": 10,
+      "avg_lookup_time": 5.412101745605469e-05,
+      "avg_search_time": 6.580352783203125e-06,
+      "avg_autocomplete_time": 0
+    }
+  },
+  "performance_comparison": {
+    "fastest_lookup": {
+      "implementation": "trie",
+      "name": "Trie Dictionary",
+      "time": 9.751319885253906e-07
+    },
+    "fastest_search": {
+      "implementation": "simple",
+      "name": "Simple Dictionary",
+      "time": 6.580352783203125e-06
+    },
+    "trie_vs_stardict": {
+      "lookup_improvement": 276289.16381418094,
+      "search_improvement": 47213.11453744493
+    }
+  },
+  "recommendations": [
+    "Trie词典表现优异，建议在生产环境中使用",
+    "StarDict SQLite可以作为Trie词典的备用方案"
+  ]
+}

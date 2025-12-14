@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Global Dictionary Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .instructions {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Global Dictionary Feature Test</h1>
+
+    <div class="instructions">
+        <h2>Instructions:</h2>
+        <p>1. Make sure the frontend server is running on http://localhost:5173</p>
+        <p>2. Log in to the application</p>
+        <p>3. Navigate to any page (Dashboard, Documents, etc.)</p>
+        <p>4. Double-click on any English word to see the dictionary popup</p>
+        <p>5. In the popup, double-click words in definitions, translations, or examples to continue looking up words</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Text</h2>
+        <p>Here is some sample text for testing the global dictionary feature. The implementation provides comprehensive functionality for vocabulary acquisition. This sophisticated system offers seamless integration with existing applications.</p>
+        <p>Technology encompasses various aspects of modern life. Software development requires continuous learning and adaptation to new paradigms. The architecture supports multiple interaction patterns.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Expected Behavior</h2>
+        <ul>
+            <li>✅ Double-clicking any English word (2+ characters) should show a dictionary popup</li>
+            <li>✅ Popup should appear near the cursor position</li>
+            <li>✅ Popup should show word definition, translation, examples, and pronunciation</li>
+            <li>✅ Can add words to vocabulary collection</li>
+            <li>✅ Can play word pronunciation</li>
+            <li>✅ Double-clicking words in the popup results should open new lookups</li>
+            <li>✅ Clicking outside or pressing ESC closes the popup</li>
+            <li>✅ Won't trigger on input fields, buttons, or other interactive elements</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Cases to Try</h2>
+        <ol>
+            <li>Double-click "implementation" - should show definition and examples</li>
+            <li>Double-click "comprehensive" - should show related words suggestions</li>
+            <li>Double-click "technology" - should show pronunciation button</li>
+            <li>In the popup, double-click words in the definition to continue looking up</li>
+            <li>Try adding a word to vocabulary collection</li>
+            <li>Test on different pages: Dashboard, Documents, Notes, etc.</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Known Limitations</h2>
+        <ul>
+            <li>Words must be at least 2 characters long</li>
+            <li>Pure numbers are ignored</li>
+            <li>Doesn't trigger on input fields, buttons, select options</li>
+            <li>Doesn't work inside the dictionary popup itself (to prevent loops)</li>
+        </ul>
+    </div>
+</body>
+</html>

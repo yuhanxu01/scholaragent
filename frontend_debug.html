@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Usage Debug</title>
+</head>
+<body>
+    <h1>Token Usage Debug Page</h1>
+    <div id="results"></div>
+
+    <script>
+        // 直接测试API调用，模拟前端行为
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTc4NTQ3LCJpYXQiOjE3NjU1NzQ5NDcsImp0aSI6ImM1MmJjOGE0MGU2ZTRlY2NhZDUzOWY0ZDUyOGQyODRhIiwidXNlcl9pZCI6IjcifQ.MJrK7M3Q0h3FAnE5MAwd4bqElr_8L4IVJm-Li5FFTF8";
+
+        async function testAPI() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h2>Testing API...</h2>';
+
+            try {
+                // 测试dashboard stats
+                console.log('Testing dashboard stats...');
+                const dashboardResponse = await fetch('http://localhost:8000/api/billing/token-usage/dashboard_stats/', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                console.log('Dashboard response status:', dashboardResponse.status);
+                console.log('Dashboard response headers:', Object.fromEntries(dashboardResponse.headers));
+
+                if (!dashboardResponse.ok) {
+                    throw new Error(`HTTP error! status: ${dashboardResponse.status}`);
+                }
+
+                const dashboardData = await dashboardResponse.json();
+                console.log('Dashboard data:', dashboardData);
+
+                resultsDiv.innerHTML += `
+                    <h3>✅ Dashboard Stats API Success</h3>
+                    <pre>${JSON.stringify(dashboardData, null, 2)}</pre>
+                    <p><strong>Total Tokens:</strong> ${dashboardData.user_stats?.total_tokens || 0}</p>
+                    <p><strong>API Calls:</strong> ${dashboardData.user_stats?.api_call_count || 0}</p>
+                `;
+
+                // 测试user records
+                console.log('Testing user records...');
+                const recordsResponse = await fetch('http://localhost:8000/api/billing/token-usage/user_records/?limit=10', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                console.log('Records response status:', recordsResponse.status);
+
+                if (!recordsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${recordsResponse.status}`);
+                }
+
+                const recordsData = await recordsResponse.json();
+                console.log('Records data:', recordsData);
+
+                resultsDiv.innerHTML += `
+                    <h3>✅ User Records API Success</h3>
+                    <p><strong>Record Count:</strong> ${recordsData.length}</p>
+                    <pre>${JSON.stringify(recordsData.slice(0, 3), null, 2)}</pre>
+                `;
+
+                resultsDiv.innerHTML += `
+                    <h3>🎯 Conclusion</h3>
+                    <p>If you see correct data above but the React app shows 0, the issue is in the React component logic or error handling.</p>
+                `;
+
+            } catch (error) {
+                console.error('API test failed:', error);
+                resultsDiv.innerHTML += `
+                    <h3>❌ API Test Failed</h3>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+
+        // 页面加载后立即测试
+        testAPI();
+    </script>
+</body>
+</html>

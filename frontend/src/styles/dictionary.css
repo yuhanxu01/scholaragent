@@ -1,0 +1,67 @@
+/* 全局查词样式增强 */
+
+/* 为可查词的文本添加提示样式 */
+.dictionary-content {
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* 鼠标悬停时的视觉反馈 */
+.dictionary-content:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+  border-radius: 2px;
+}
+
+/* 防止在某些特定元素上触发查词 */
+.no-dictionary {
+  cursor: default;
+}
+
+/* 查词弹窗动画优化 */
+.dictionary-popup {
+  animation: fadeInScale 0.2s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 增强文本选择的可读性 */
+.dictionary-content::selection {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+/* 防止查词弹窗遮挡重要UI元素 */
+.dictionary-popup {
+  z-index: 9999;
+  max-width: min(400px, calc(100vw - 20px));
+  max-height: min(500px, calc(100vh - 100px));
+  overflow: auto;
+}
+
+/* 优化滚动条样式 */
+.dictionary-popup::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dictionary-popup::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.dictionary-popup::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.dictionary-popup::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

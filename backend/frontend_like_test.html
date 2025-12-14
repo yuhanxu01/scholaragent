@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试点赞功能</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>测试笔记点赞功能</h1>
+
+    <div>
+        <h3>步骤 1: 设置认证Token</h3>
+        <button onclick="setToken()">设置Token</button>
+        <div id="token-status"></div>
+    </div>
+
+    <div>
+        <h3>步骤 2: 获取笔记列表</h3>
+        <button onclick="loadNotes()">加载笔记</button>
+        <div id="notes-list"></div>
+    </div>
+
+    <div>
+        <h3>步骤 3: 测试点赞</h3>
+        <button onclick="testLike()">测试点赞第一条笔记</button>
+        <div id="like-result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api';
+        let accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1MzE5NjI5LCJpYXQiOjE3NjUzMTYwMjksImp0aSI6ImQ3OGVjN2VkODU1ODQwY2NhNGNhMjQyZTNhNDhiOGY4IiwidXNlcl9pZCI6IjcifQ.9F6rApY7ka5I92OZbkFwawW0Dlae3XoUuIEbhVEfy_0';
+
+        function log(message) {
+            console.log(message);
+            document.body.insertAdjacentHTML('beforeend', `<p>${message}</p>`);
+        }
+
+        function setToken() {
+            localStorage.setItem('access_token', accessToken);
+            document.getElementById('token-status').innerHTML =
+                `<span style="color: green;">✅ Token已设置</span>`;
+            log('Token设置成功');
+        }
+
+        async function loadNotes() {
+            try {
+                const response = await axios.get(`${API_BASE}/knowledge/notes/`, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const notes = response.data.results || [];
+                let html = `<p>获取到 ${notes.length} 条笔记:</p>`;
+                notes.forEach((note, index) => {
+                    html += `<p>${index + 1}. ${note.title} (ID: ${note.id})</p>`;
+                    html += `<p>   - 点赞数: ${note.likes_count || 0}</p>`;
+                    html += `<p>   - 已点赞: ${note.is_liked ? '是' : '否'}</p>`;
+                });
+                document.getElementById('notes-list').innerHTML = html;
+                log(`成功加载 ${notes.length} 条笔记`);
+            } catch (error) {
+                const errorMsg = `加载笔记失败: ${error.response?.status} - ${error.response?.data?.detail || error.message}`;
+                document.getElementById('notes-list').innerHTML =
+                    `<span style="color: red;">❌ ${errorMsg}</span>`;
+                log(errorMsg);
+            }
+        }
+
+        async function testLike() {
+            try {
+                // 先获取第一条笔记
+                const response = await axios.get(`${API_BASE}/knowledge/notes/`, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const notes = response.data.results || [];
+                if (notes.length === 0) {
+                    alert('没有笔记可以测试');
+                    return;
+                }
+
+                const noteId = notes[0].id;
+                const isLiked = notes[0].is_liked;
+
+                log(`准备${isLiked ? '取消' : ''}点赞笔记: ${notes[0].title}`);
+                log(`笔记ID: ${noteId} (类型: ${typeof noteId})`);
+
+                // 构造URL
+                const url = `${API_BASE}/knowledge/notes/${noteId}/${isLiked ? 'unlike' : 'like'}/`;
+                log(`请求URL: ${url}`);
+
+                // 发送请求
+                const likeResponse = await axios.post(url, {}, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const result = likeResponse.data;
+                log(`✅ 成功! ${result.message}`);
+                log(`点赞数: ${result.likes_count}`);
+                log(`已点赞: ${result.is_liked ? '是' : '否'}`);
+
+                document.getElementById('like-result').innerHTML =
+                    `<span style="color: green;">✅ ${result.message}</span><br>
+                     点赞数: ${result.likes_count}<br>
+                     已点赞: ${result.is_liked ? '是' : '否'}`;
+
+            } catch (error) {
+                const errorMsg = `点赞失败: ${error.response?.status} - ${error.response?.data?.detail || error.message}`;
+                document.getElementById('like-result').innerHTML =
+                    `<span style="color: red;">❌ ${errorMsg}</span>`;
+                log(errorMsg);
+
+                if (error.response) {
+                    log(`请求URL: ${error.config.url}`);
+                    log(`请求方法: ${error.config.method}`);
+                    log(`请求头: ${JSON.stringify(error.config.headers)}`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Dictionary Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-text {
+            font-size: 18px;
+            line-height: 1.8;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .instructions {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .status {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Global Dictionary Test</h1>
+
+    <div class="instructions">
+        <h2>Instructions:</h2>
+        <p>1. Open the main application at <a href="http://localhost:5173" target="_blank">http://localhost:5173</a></p>
+        <p>2. Log in to the application</p>
+        <p>3. Navigate to any page (Dashboard, Documents, etc.)</p>
+        <p>4. Double-click on any English word</p>
+        <p>5. Open browser console (F12) to see the log messages</p>
+    </div>
+
+    <div class="status">
+        <strong>Status:</strong> Simplified dictionary functionality is active.
+        Words will be logged to console instead of showing popup.
+    </div>
+
+    <div class="test-text">
+        <h2>Test Text for Double-Click</h2>
+        <p>
+            Double-click on any of these words: <strong>implementation</strong>,
+            <strong>comprehensive</strong>, <strong>technology</strong>,
+            <strong>software</strong>, <strong>development</strong>,
+            <strong>architecture</strong>, <strong>paradigms</strong>.
+        </p>
+        <p>
+            This is a <strong>simplified test version</strong> that logs words to the console
+            instead of showing a popup. Check the browser console (F12) to see the
+            dictionary lookup results.
+        </p>
+    </div>
+
+    <div class="instructions">
+        <h3>What to look for in console:</h3>
+        <ul>
+            <li>Console should show: "Dictionary lookup for: [word] Context: [context]"</li>
+            <li>Should work on any page after logging in</li>
+            <li>Should NOT trigger on input fields, buttons, or other interactive elements</li>
+            <li>Minimum word length is 2 characters</li>
+        </ul>
+    </div>
+
+    <div class="test-text">
+        <h3>More Test Paragraph</h3>
+        <p>
+            Modern software development requires understanding of various programming paradigms.
+            The implementation of comprehensive systems involves careful consideration of
+            architecture patterns and technology choices. Developers must continuously learn
+            and adapt to new frameworks and methodologies.
+        </p>
+    </div>
+
+</body>
+</html>
